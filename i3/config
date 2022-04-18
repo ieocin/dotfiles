@@ -204,6 +204,7 @@ exec --no-startup-id ~/Documents/polybar-multi.sh
 exec --no-startup-id picom --experimental-backends
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
+exec --no-startup-id xinput set-prop 11 351 0
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/Documents/volblip.sh up
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/Documents/volblip.sh down
