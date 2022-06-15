@@ -1,0 +1,5 @@
+# on old machine:
+yay -Q | sed 's/ .*//g' | tr '\012\015' ' ' > packages.txt
+
+# on new machine:
+yay -S $(cat package.txt)
