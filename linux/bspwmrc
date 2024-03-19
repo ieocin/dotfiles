@@ -1,0 +1,34 @@
+#!/bin/bash
+~/.config/scripts/display-switcher.sh startup
+
+picom -b &
+sxhkd &
+dunst &
+playerctld daemon
+~/.config/polybar/launch.sh &
+
+# set the wallpaper
+#~/.scripts/update-wallpaper
+feh --bg-fill ~/Pictures/wp2.jpg
+
+# use the normal cursor when not hovering over a window
+xsetroot -xcf /usr/share/icons/breeze_cursors/cursors/left_ptr 24
+
+bspc monitor DisplayPort-1 -d I II III IV V VI
+bspc monitor DisplayPort-2 -d I II III IV V VI
+bspc monitor HDMI-A-0 -d I II III IV V VI
+
+bspc config border_width 1
+bspc config window_gap 12
+
+bspc config split_ratio 0.5
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+bspc config focus_follows_pointer true
+
+#bspc rule -a Emacs state=tiled
+#bspc rule -a Zathura state=tiled
+#bspc rule -a \*:origin.exe state=floating
+bspc rule -a floating state=floating
+
+~/.config/scripts/tvstart.sh
