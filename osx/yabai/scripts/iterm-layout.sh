@@ -1,5 +1,9 @@
 #!/bin/sh
 osascript -e 'tell application "iTerm2" to activate' -e 'tell application "iTerm2" to create window with default profile' -e 'tell application "System Events" to tell process "iTerm" to keystroke "ssh nc@192.168.2.220 -p 2222 -t \"htop\""' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+sleep 1
+for i in {1..9}; do
+    osascript -e 'tell application "System Events" to tell process "iTerm" to key code 124'
+done
 yabai -m window --move abs:25:110
 yabai -m window --resize abs:590:480
 
