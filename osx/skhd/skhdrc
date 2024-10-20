@@ -1,22 +1,21 @@
 # opens iTerm2
 alt - return : "${HOME}"/.config/yabai/scripts/open_iterm2.sh
+# floating iTerm2
+shift + alt - return : "${HOME}"/.config/yabai/scripts/open_iterm2.sh; yabai -m window --toggle float; yabai -m window --resize abs:900:500; yabai -m window --move abs:300:200;
 
 # Navigation
-#alt - h : yabai -m window --focus west
-#alt - k : yabai -m window --focus south
-#alt - j : yabai -m window --focus north
-#alt - l : yabai -m window --focus east
+shift + alt - left : yabai -m window --focus west
+shift + alt - down : yabai -m window --focus south
+shift + alt - up : yabai -m window --focus north
+shift + alt - right : yabai -m window --focus east
 
 # Moving windows
-shift + alt - left : yabai -m window --warp west
-shift + alt - down : yabai -m window --warp south
-shift + alt - up : yabai -m window --warp north
-shift + alt - right : yabai -m window --warp east
+shift + alt + lctrl - left : yabai -m window --warp west
+shift + alt + lctrl - down : yabai -m window --warp south
+shift + alt + lctrl - up : yabai -m window --warp north
+shift + alt + lctrl - right : yabai -m window --warp east
 
 # Move focus container to workspace
-shift + alt - m : yabai -m window --space last; yabai -m space --focus last
-shift + alt - p : yabai -m window --space prev; yabai -m space --focus prev
-shift + alt - n : yabai -m window --space next; yabai -m space --focus next
 shift + alt - 1 : yabai -m window --space 1; 
 shift + alt - 2 : yabai -m window --space 2; 
 shift + alt - 3 : yabai -m window --space 3; 
@@ -36,7 +35,7 @@ lctrl + alt - right : yabai -m window --resize right:50:0; \
 lctrl + alt - e : yabai -m space --balance
 
 # Enable / Disable gaps in current workspace
-lctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
+shift + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 
 # Rotate windows clockwise and anticlockwise
 alt - r         : yabai -m space --rotate 270
@@ -47,10 +46,10 @@ shift + alt - x : yabai -m space --mirror x-axis
 shift + alt - y : yabai -m space --mirror y-axis
 
 # Set insertion point for focused container
-shift + lctrl + alt - left : yabai -m window --insert west
-shift + lctrl + alt - down : yabai -m window --insert south
-shift + lctrl + alt - up : yabai -m window --insert north
-shift + lctrl + alt - right : yabai -m window --insert east
+cmd + lctrl + alt - left : yabai -m window --insert west
+cmd + lctrl + alt - down : yabai -m window --insert south
+cmd + lctrl + alt - up : yabai -m window --insert north
+cmd + lctrl + alt - right : yabai -m window --insert east
 
 # Float / Unfloat window
 shift + alt - space : \
@@ -76,3 +75,6 @@ alt - 4 : yabai -m space --focus 4
 
 # Turn mouse focus on and off
 alt - m : yabai -m config mouse_follows_focus $(if [[ $(yabai -m config mouse_follows_focus) == "on" ]]; then echo "off"; else echo "on"; fi) && yabai -m config focus_follows_mouse $(if [[ $(yabai -m config focus_follows_mouse) == "autofocus" ]]; then echo "off"; else echo "autofocus"; fi)
+
+# layout
+alt + shift + lctrl - z : "${HOME}"/.config/yabai/scripts/iterm-layout.sh
